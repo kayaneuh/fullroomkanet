@@ -20,6 +20,11 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 
+gem 'devise'
+
+# permet de changer la langue
+gem 'devise-i18n'
+
 # bootstrap
 gem 'bootstrap-sass'
 # See https://github.com/rails/execjs#readme for more supported runtimes

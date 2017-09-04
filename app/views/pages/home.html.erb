@@ -1,1 +1,8 @@
 <h2>Hello!</h2>
+
+<!-- link_to on peut personnaliser le lien cliquable
+vers la route définie
+pour le lien déconnexion, on lui applique la méthode :delete -->
+<%= link_to 'Inscription', new_user_registration_path %> 
+<%= link_to 'Identification', new_user_session_path %>
+<%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %>
