@@ -25,6 +25,9 @@ gem 'devise'
 # permet de changer la langue
 gem 'devise-i18n'
 
+# upload une image - paperclip : https://github.com/thoughtbot/paperclip
+gem 'paperclip'
+
 # bootstrap
 gem 'bootstrap-sass'
 # See https://github.com/rails/execjs#readme for more supported runtimes

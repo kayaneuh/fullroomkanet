@@ -6,9 +6,10 @@ class ApplicationController < ActionController::Base
 before_action :configure_permitted_parameters, if: :devise_controller?
 
 protected
+    # permit sign up fullname
+    # permit account update -> permet de mettre à jour : fullname, avatar
 def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:fullname])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:fullname])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:fullname, :avatar])
 end
-
 end
