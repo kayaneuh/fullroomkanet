@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'pages#home'
-
+  
+  # resources permet de récupérer les informations de users et de créer la route vers show seulement
+  resources :users, only: [:show]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
