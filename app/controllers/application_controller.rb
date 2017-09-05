@@ -10,6 +10,6 @@ protected
     # permit account update -> permet de mettre à jour : fullname, avatar
 def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:fullname])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:fullname, :avatar])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:fullname, :avatar, :phone_number, :description, :email, :password, :password_confirmation])
 end
 end
