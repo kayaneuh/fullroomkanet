@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
+  <title>FullRoom</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
-  <%= render 'layouts/navigation' %>
   <!-- permet de mettre le site en responsive, prend la largeur du device, scale 1 -->
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  
+  <!-- nav bar -->
+  <%= render 'layouts/navigation' %>
   <!-- permet d'afficher des messages lorsqu'on met à jour devise -->
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert%></p>
-<%= yield %>
+<!-- on a enlevé notice et alert ici pour le remplacer par le partial de toastr
+  <p class="notice">%= notice %</p>
+  <p class="alert">%= alert%</p> 
+  -->
+<!-- le partial dans le dossier shared dans views qui permet l'affichage de notifications avec toastr -->
+<%= render 'shared/message' %>
+<div class="container"><%= yield %></div>
 
 </body>
 </html>

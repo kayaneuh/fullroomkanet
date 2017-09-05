@@ -20,7 +20,10 @@
             <div class="container">
             
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= devise_error_messages! %>
+      <!-- suppression du devise error messages! par les errors alert de toastr lors de l'inscription et modification de profil
+      %= devise_error_messages! % -->
+    
+    <%= render 'shared/devise_errors' %>
     
     <!-- ajout de l'input fullname
     placeholder : afin d'avoir le texte descriptif dans l'input -->

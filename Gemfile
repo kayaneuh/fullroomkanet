@@ -24,9 +24,13 @@ gem 'devise'
 
 # permet de changer la langue
 gem 'devise-i18n'
-
+# permet le changement de langue même sur les pages 'non devise'
+gem 'rails-i18n'
 # upload une image - paperclip : https://github.com/thoughtbot/paperclip
 gem 'paperclip'
+
+# gem notifications toastr https://github.com/tylergannon/toastr-rails
+gem 'toastr-rails'
 
 # bootstrap
 gem 'bootstrap-sass'

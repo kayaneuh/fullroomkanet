@@ -15,3 +15,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require toastr
+
+// permet d'afficher les alerts message en bas à droite avec toastr rails
+toastr.options = {
+    "positionClass":"toast-bottom-right"
+}
