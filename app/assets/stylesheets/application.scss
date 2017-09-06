@@ -294,6 +294,8 @@ body {
 
  }
  
+ /* CSS pour le formulaire d'annonce de création */
+ 
  label {
 
  color: #565a5c;
@@ -387,5 +389,20 @@ input[type="checkbox"]:checked:before {
  width: 1.25em;
 
  color: #ff5a5f;
+
+ }
+ 
+ /* CSS pour le bouton et l'affichage des photos pour la création d'une annonce _list.html.erb photos/ */
+ 
+ .panel-heading.preview {
+
+         padding: 0;
+
+ }
+
+  
+.panel-heading.preview img{  
+
+          width: 100%;
 
  }
