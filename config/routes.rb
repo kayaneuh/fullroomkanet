@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   
   # autoriser toutes les méthodes de room
   resources :rooms
+  
+  # 
+  resources :photos
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
