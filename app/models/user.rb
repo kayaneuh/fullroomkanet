@@ -19,4 +19,7 @@ class User < ActiveRecord::Base
   # ajouter l'attribut image/avatar sur le model User
   # --> rails generate paperclip user avatar 
   
+  # un user peut avoir plusieurs annonces (rooms)
+  has_many :rooms
+  
 end
