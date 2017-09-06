@@ -1,10 +1,10 @@
-class RoomController < ApplicationController
+class RoomsController < ApplicationController
     
     # lancer la méthode set_room pour les méthodes ci-dessous
     before_action :set_room, only: [:show, :edit, :update]
     
     # pour toutes ces méthodes, il faut être identifié sauf pour la méhtode show (car pas besoin d'être co ou avoir un compte pour voir les annonces)
-    before action :authenticate_user!, except: [:show]
+    before_action :authenticate_user!, except: [:show]
     
     # la méthode pour la page ou l'on va référencer toutes les annonces d'un user
     def index
@@ -31,7 +31,7 @@ class RoomController < ApplicationController
               redirect to @room, notice:"Modification enregistrée..."
        else
            render :edit
-    end
+        end
     end
         
     
@@ -59,6 +59,4 @@ class RoomController < ApplicationController
     def room_params
         params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, :listing_name, :summary, :address, :is_wifi, :is_tv, :is_closet, :is_shampoo, :is_breakfast, :is_heating, :is_air, :is_kitchen, :price, :active)
     end
-    
-    
 end

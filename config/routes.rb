@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   
   # resources permet de récupérer les informations de users et de créer la route vers show seulement
   resources :users, only: [:show]
+  
+  # autoriser toutes les méthodes de room
+  resources :rooms
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

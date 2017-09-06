@@ -4,7 +4,7 @@ class Room < ActiveRecord::Base
   
   # les caractéristiques obligatoires d'une annonce (room) pour qu'elle soit valide
   validates :home_type, presence: true
-  validates :accomodate, presence: true
+  validates :accommodate, presence: true
   validates :bed_room, presence: true
   validates :bath_room, presence: true
   validates :listing_name, presence: true, length: {maximum: 75}

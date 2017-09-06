@@ -32,6 +32,9 @@ gem 'paperclip'
 # gem notifications toastr https://github.com/tylergannon/toastr-rails
 gem 'toastr-rails'
 
+# améliorer nos vues et formulaires (avec des icones etc) http://fontawesome.io/
+gem 'font-awesome-sass'
+
 # bootstrap
 gem 'bootstrap-sass'
 # See https://github.com/rails/execjs#readme for more supported runtimes
