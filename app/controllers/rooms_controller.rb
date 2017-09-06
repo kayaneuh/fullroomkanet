@@ -6,6 +6,8 @@ class RoomsController < ApplicationController
     # pour toutes ces méthodes, il faut être identifié sauf pour la méhtode show (car pas besoin d'être co ou avoir un compte pour voir les annonces)
     before_action :authenticate_user!, except: [:show]
     
+    # 
+    before_action :require_same_user, only: [:edit, :update]
     # la méthode pour la page ou l'on va référencer toutes les annonces d'un user
     def index
         @rooms = current_user.rooms
@@ -20,31 +22,44 @@ class RoomsController < ApplicationController
     def create
       @room = current_user.rooms.build(room_params)
       if @room.save
-            redirect_to @room, notice:"Votre annonce a été ajouté avec succès" #redirige vers la page de l’annonce et notifie l’utilisateur de la réussite de la création
+          # pour chaque image ajouté, créé une insertion dans la table photo avec un id
+          if params[:images]
+            params[:images].each do |i|
+                @room.photos.create(image: i)
+            end
+       end
+            @photos = @room.photos
+            redirect_to edit_room_path(@room), notice:"Votre logement a été ajouté" #redirige vers la page de l’annonce et notifie l’utilisateur de la réussite de la création
       else
            render :new # s’il y a une erreur, redirige vers la page de création new
       end
-    end
-    
-    def update
-       if @room.update(room_params)
-              redirect to @room, notice:"Modification enregistrée..."
-       else
-           render :edit
-        end
-    end
+  end
         
     
     # la méthode show va montrer l'annonce id:X
     def show
+        @photos = @room.photos
     end
     
     # la méthode edit va editer l'annonce id:X
     def edit
+        @photos = @room.photos 
     end
    
    # la méthode update va mettre à jour l'annonce id:X
     def update
+        if @room.update(room_params)
+            if params[:images]
+                params[:images].each do |i|
+                @room.photos.create(image: i)
+            end
+       end
+            @photos = @room.photos
+            redirect_to edit_room_path(@room), notice:"Modification enregistrée..."
+            
+        else
+            render :edit
+    end
     end
     
     # pour ne pas répéter du code pour la méthode show, edit et update
@@ -59,4 +74,12 @@ class RoomsController < ApplicationController
     def room_params
         params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, :listing_name, :summary, :address, :is_wifi, :is_tv, :is_closet, :is_shampoo, :is_breakfast, :is_heating, :is_air, :is_kitchen, :price, :active)
     end
-end
+    
+    # méthode qui permet qu'un utilisateur ne puisse pas modifier l'annonce de quelqu'un d'autre
+    def require_same_user
+        if current_user.id != @room.user_id
+            flash[:danger] = "vous n'avez pas le droit de modifier cette page"
+            redirect_to root_path
+        end
+    end
+    end
