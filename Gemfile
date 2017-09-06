@@ -35,6 +35,9 @@ gem 'toastr-rails'
 # améliorer nos vues et formulaires (avec des icones etc) http://fontawesome.io/
 gem 'font-awesome-sass'
 
+# gem google map 
+gem 'geocoder'
+
 # bootstrap
 gem 'bootstrap-sass'
 # See https://github.com/rails/execjs#readme for more supported runtimes
