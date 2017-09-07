@@ -38,6 +38,9 @@ gem 'font-awesome-sass'
 # gem google map 
 gem 'geocoder'
 
+# gem jquery
+gem 'jquery-ui-rails'
+
 # bootstrap
 gem 'bootstrap-sass'
 # See https://github.com/rails/execjs#readme for more supported runtimes
