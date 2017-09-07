@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   # autoriser toutes les méthodes de room
   resources :rooms do
     resources :reservations, only: [:create]
+  end
   # 
   resources :photos
     
