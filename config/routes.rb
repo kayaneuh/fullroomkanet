@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   
   get '/preload' => 'reservations#preload'
+  get '/preview' => 'reservations#preview'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
