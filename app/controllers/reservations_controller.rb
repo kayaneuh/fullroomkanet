@@ -3,6 +3,16 @@ class ReservationsController < ApplicationController
     # pour faire une réservation il faut être authentifié
     before_action :authenticate_user!
     
+    
+    def preload
+       room = Room.find(params[:room_id])
+       today = Date.today
+       # date de réservation début et fin plus tard que la date d'aujourd'hui
+       reservations = room.reservations.where("start_date >= ? OR end_date >= ?", today, today)
+       
+       render json: reservations
+    end
+    
     # méthode de création d'une réservation par le current user
     # redirection vers la page de réservation
     def create
