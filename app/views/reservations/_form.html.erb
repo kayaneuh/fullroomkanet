@@ -1,10 +1,68 @@
-<%= form_for([@room, @room.reservations.new]) do |f| %>     
-     <%= f.text_field :start_date %>                           
-     <%= f.text_field :end_date %>                             
+<%= form_for([@room, @room.reservations.new]) do |f| %>
+
+<!-- affichage de prix -->
+<div class="row">
+        <div class="col-md-12 price_tag">
+            <span>€ <%= @room.price %></span>
+            <span class="pull-right">Par nuit</span>
+        </div>
+    </div>
+    
+<div class="row">
+
+         <div class="col-md-6">
+
+         <label>Arrivée</label>
+        <!-- input de date de début -->
+         <%= f.text_field :start_date, readonly: 'true', placeholder: 'jj/mm/aaaa', class: 'form-control' %>
+
+         </div>
+
+         <div class="col-md-6">
+
+         <label>Départ</label>
+        <!-- input de date de fin -->
+         <%= f.text_field :end_date, readonly: 'true', placeholder: 'jj/mm/aaaa', class: 'form-control' %>
+
+         </div>
+
+ </div>
+ 
+ <!-- Affichage de nuits réservés -->
+ <!-- style display none -> Permet d'afficher seulement lorsqu'il y a des informations -->
+ <div id="preview" style="display: none">
+
+       <table class="reservation-table" >
+
+               <tbody>
+
+                    <tr>
+
+                        <td>Nuit(s)</td>
+
+                        <td><span id="reservation_days"></span></td>
+
+                    </tr>
+
+                    <tr>
+
+                         <td>Total</td>
+
+                         <td><span id="reservation_sum"></span>€</td>
+
+                   </tr>
+
+               </tbody>
+
+        </table>
+
+ </div>
+     <!-- A QUOI SERVENT LES CHAMPS CACHES -->
      <%= f.hidden_field :room_id, value: @room.id %> <!-- champs caché pour renseigner l’id du logement et le prix -->
      <%= f.hidden_field :price, value: @room.price %>
+     <%= f.hidden_field :total, id: 'reservation_total' %>
  <br>
-     <%= f.submit "Demande de réservation ", class: "btn btn-primary" %>
+     <%= f.submit "Demande de réservation ", class: "btn btn-primary wide" %>
  <% end %>
 
 <!-- script datepicker : https://jqueryui.com/datepicker/ -->
