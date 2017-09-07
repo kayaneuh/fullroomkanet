@@ -2,7 +2,7 @@ class Room < ActiveRecord::Base
   # une annonce room appartient à un utilisateur
   belongs_to :user
   has_many :photos
-  
+  has_many :reservations
   
   # les caractéristiques obligatoires d'une annonce (room) pour qu'elle soit valide
   validates :home_type, presence: true
