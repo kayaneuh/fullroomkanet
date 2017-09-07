@@ -6,3 +6,6 @@ pour le lien déconnexion, on lui applique la méthode :delete -->
 <%= link_to 'Inscription', new_user_registration_path %> 
 <%= link_to 'Identification', new_user_session_path %>
 <%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %>
+<%= link_to "Mes annonces", rooms_path %>
+<%= link_to "Mes réservations", your_reservations_path %>
+<%= link_to "Mes voyages", your_trips_path %>
